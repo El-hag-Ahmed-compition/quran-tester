@@ -17,157 +17,105 @@
 
   /* NAV */
   nav {
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 5%; background:rgba(26,74,58,0.97);
-    border-bottom:2px solid var(--gold); position:sticky; top:0; z-index:100;
-    box-shadow:0 4px 20px rgba(0,0,0,0.3);
+    display:flex; align-items:center; justify-content:between; padding:15px 5%;
+    background:rgba(26,74,58,0.97); border-bottom:2px solid var(--gold); position:relative; z-index:10;
   }
-  .nav-logo { display:flex; align-items:center; gap:10px; }
-  .nav-logo .ic { width:38px; height:38px; background:linear-gradient(135deg,var(--gold),var(--gold-dark)); border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:20px; }
-  .nav-logo span { font-size:18px; font-weight:700; color:var(--cream); }
-  .nav-back { color:var(--gold-light); text-decoration:none; font-size:14px; font-weight:600; padding:8px 18px; border:1px solid rgba(201,168,76,0.4); border-radius:8px; transition:all .2s; }
-  .nav-back:hover { background:rgba(201,168,76,0.15); }
+  .nav-logo { display:flex; align-items:center; gap:10px; color:var(--cream); font-weight:700; font-size:18px; }
+  .nav-logo .ic { width:34px; height:34px; background:var(--gold); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; }
 
-  /* CONTAINER */
-  .container { max-width:1100px; margin:0 auto; padding:40px 5%; }
+  .back-btn {
+    background:transparent; border:1px solid var(--gold); color:var(--gold-light);
+    padding:6px 16px; border-radius:8px; font-family:'Cairo'; font-size:13px; font-weight:600;
+    cursor:pointer; transition:all 0.2s; text-decoration:none;
+  }
+  .back-btn:hover { background:var(--gold); color:var(--ink); }
 
-  /* SETTINGS PANEL */
-  .settings-panel {
-    background:white; border-radius:20px; padding:32px;
-    border:1.5px solid var(--cream-dark); box-shadow:0 4px 20px rgba(0,0,0,0.05);
-    margin-bottom:32px;
+  .wrapper { max-width:1200px; margin:40px auto; padding:0 20px; }
+
+  /* CONTROLS BAR */
+  .control-panel {
+    background:white; border:1.5px solid var(--cream-dark); border-radius:16px;
+    padding:20px; margin-bottom:30px; box-shadow:0 4px 20px rgba(0,0,0,0.03);
   }
-  .panel-title { font-size:18px; font-weight:800; color:var(--emerald); margin-bottom:22px; display:flex; align-items:center; gap:10px; }
-  .settings-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin-bottom:18px; }
-  .setting-item label { display:block; font-size:12px; font-weight:700; color:#7A6040; margin-bottom:6px; }
-  .setting-item select, .setting-item input {
-    width:100%; padding:10px 14px; border:1.5px solid var(--cream-dark);
-    border-radius:10px; font-family:'Cairo',sans-serif; font-size:14px;
-    color:var(--ink); background:var(--parchment); outline:none; transition:border .2s;
+  .panel-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:12px; }
+  .p-group { display:flex; flex-direction:column; gap:6px; }
+  .p-group label { font-size:12px; font-weight:700; color:var(--emerald); }
+  .p-control {
+    background:var(--parchment); border:1px solid var(--cream-dark); border-radius:8px;
+    padding:10px 12px; font-family:'Cairo'; font-size:13px; color:var(--ink); outline:none;
   }
-  .setting-item select:focus, .setting-item input:focus { border-color:var(--gold); }
-  .types-row { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+  .p-control:focus { border-color:var(--gold); }
+
+  .tags-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:15px; padding-top:15px; border-top:1px dashed var(--cream-dark); }
   .type-tag {
-    padding:7px 14px; border-radius:8px; font-size:13px; font-weight:600;
-    border:1.5px solid var(--cream-dark); background:var(--parchment);
-    cursor:pointer; transition:all .2s; color:#7A6040;
+    padding:6px 14px; border-radius:50px; border:1px solid var(--cream-dark); background:white;
+    font-size:12px; font-weight:600; color:#666; cursor:pointer; transition:all 0.2s;
   }
-  .type-tag.on { background:var(--emerald); color:var(--gold-light); border-color:var(--emerald); }
-  .generate-btn {
-    width:100%; padding:16px; background:linear-gradient(135deg,var(--emerald),var(--emerald-light));
-    color:var(--cream); font-family:'Cairo',sans-serif; font-size:17px; font-weight:800;
-    border:none; border-radius:13px; cursor:pointer; transition:all .3s;
-    box-shadow:0 5px 20px rgba(26,74,58,0.3); display:flex; align-items:center; justify-content:center; gap:10px;
-  }
-  .generate-btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(26,74,58,0.4); }
-  .generate-btn:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+  .type-tag.on { background:rgba(201,168,76,0.15); border-color:var(--gold); color:var(--gold-dark); }
 
-  /* LOADING */
-  .loading-overlay {
-    display:none; flex-direction:column; align-items:center; justify-content:center;
-    padding:60px 20px; text-align:center;
+  .actions-row { display:flex; gap:10px; margin-top:15px; justify-content:flex-end; }
+  .action-btn {
+    padding:10px 20px; border-radius:10px; font-family:'Cairo'; font-size:14px; font-weight:700;
+    cursor:pointer; transition:all 0.25s; border:none; display:inline-flex; align-items:center; gap:8px;
   }
-  .loading-overlay.show { display:flex; }
-  .spinner {
-    width:60px; height:60px; border:4px solid var(--cream-dark);
-    border-top-color:var(--emerald); border-radius:50%;
-    animation:spin 0.8s linear infinite; margin-bottom:20px;
-  }
-  @keyframes spin { to { transform:rotate(360deg); } }
-  .loading-text { font-size:16px; font-weight:600; color:var(--emerald); }
-  .loading-sub { font-size:13px; color:#7A6040; margin-top:6px; }
+  .btn-gen { background:linear-gradient(135deg, var(--emerald), var(--emerald-light)); color:white; }
+  .btn-gen:hover { transform:translateY(-2px); box-shadow:0 5px 15px rgba(26,74,58,0.2); }
+  .btn-pdf { background:linear-gradient(135deg, var(--gold), var(--gold-dark)); color:white; }
+  .btn-pdf:hover { transform:translateY(-2px); box-shadow:0 5px 15px rgba(201,168,76,0.3); }
+  .btn-view { background:#eee; color:var(--ink); }
 
-  /* RESULTS HEADER */
-  .results-header {
-    display:flex; align-items:center; justify-content:space-between;
-    flex-wrap:wrap; gap:14px; margin-bottom:24px;
+  /* LOADING & STATES */
+  .loading-box {
+    background:white; border-radius:16px; border:1.5px solid var(--cream-dark);
+    padding:6px 20px; text-align:center; display:none; margin-bottom:30px;
   }
-  .results-title { font-size:22px; font-weight:900; color:var(--ink); }
-  .results-meta { font-size:13px; color:#7A6040; margin-top:4px; }
-  .export-btns { display:flex; gap:10px; flex-wrap:wrap; }
-  .export-btn {
-    padding:10px 20px; border-radius:10px; font-family:'Cairo',sans-serif;
-    font-size:13px; font-weight:700; cursor:pointer; transition:all .2s;
-    display:flex; align-items:center; gap:7px;
-  }
-  .export-pdf { background:var(--red); color:white; border:none; }
-  .export-pdf:hover { background:#A93226; }
-  .export-print { background:var(--emerald); color:var(--cream); border:none; }
-  .export-print:hover { background:var(--emerald-light); }
-  .export-answers { background:var(--gold); color:white; border:none; }
-  .export-answers:hover { background:var(--gold-dark); }
+  .loading-box.show { display:block; }
+  .spinner { width:30px; height:30px; border:3px solid var(--cream-dark); border-top-color:var(--gold); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 10px; }
+  @keyframes spin { to { transform:rotate(30deg); transform:rotate(360deg); } }
 
-  /* MODELS GRID */
-  .models-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(480px,1fr)); gap:22px; }
-  @media(max-width:600px) { .models-grid { grid-template-columns:1fr; } }
+  .meta-info { font-size:14px; font-weight:600; color:#776040; margin-bottom:20px; }
 
-  /* MODEL CARD */
+  /* EXAMS GRID */
+  .models-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:24px; }
+  
   .model-card {
-    background:white; border-radius:18px; overflow:hidden;
-    border:1.5px solid var(--cream-dark); box-shadow:0 4px 16px rgba(0,0,0,0.05);
-    transition:box-shadow .3s;
+    background:white; border-radius:20px; border:1.5px solid var(--cream-dark);
+    padding:25px; box-shadow:0 4px 25px rgba(0,0,0,0.03); position:relative; overflow:hidden;
+    transition:all 0.3s; display:flex; flex-direction:column;
   }
-  .model-card:hover { box-shadow:0 8px 30px rgba(0,0,0,0.1); }
-  .model-header {
-    background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));
-    padding:16px 22px; display:flex; align-items:center; justify-content:space-between;
-  }
-  .model-num { font-size:15px; font-weight:800; color:var(--gold-light); }
-  .model-badge {
-    background:rgba(201,168,76,0.2); border:1px solid rgba(201,168,76,0.4);
-    color:var(--gold-light); font-size:11px; font-weight:700;
-    padding:4px 12px; border-radius:20px;
-  }
-  .model-body { padding:20px 22px; }
-  .question-item { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--cream-dark); }
-  .question-item:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
-  .q-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .q-num {
-    width:28px; height:28px; border-radius:8px; flex-shrink:0;
-    background:linear-gradient(135deg,var(--gold),var(--gold-dark));
-    color:white; font-size:13px; font-weight:800;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .q-type-badge {
-    background:var(--parchment); border:1px solid var(--cream-dark);
-    color:#7A6040; font-size:11px; font-weight:700; padding:3px 10px; border-radius:6px;
-  }
-  .q-text {
-    font-family:'Amiri Quran',serif; font-size:20px; line-height:2;
-    color:var(--ink); text-align:right; margin-bottom:8px;
-    padding:12px 16px; background:var(--parchment); border-radius:10px;
-    border-right:3px solid var(--gold);
-  }
-  .q-dots {
-    font-size:14px; color:#7A6040; font-weight:600; text-align:right;
-    padding:6px 16px;
-  }
-  .q-info { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
-  .q-info-tag {
-    font-size:11px; font-weight:700; padding:3px 10px; border-radius:6px;
-    background:rgba(26,74,58,0.07); color:var(--emerald-mid);
-  }
+  .model-card::before { content:''; position:absolute; top:0; right:0; left:0; height:5px; background:var(--emerald); }
+  .model-card.answer-card::before { background:var(--gold); }
 
-  /* ANSWER CARD */
-  .answer-card { background:#FFFDF5; border-color:#F0E8C8; }
-  .answer-card .model-header { background:linear-gradient(135deg,var(--gold-dark),var(--gold)); }
-  .answer-text {
-    font-family:'Amiri Quran',serif; font-size:18px; line-height:2;
-    color:var(--green); text-align:right;
-    padding:10px 14px; background:#F0FFF4; border-radius:8px;
-    border-right:3px solid var(--green); margin-top:8px;
-  }
+  .model-header-zone { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:1px solid #f5f5f5; padding-bottom:12px; }
+  .model-num { font-size:15px; font-weight:900; color:var(--ink); }
+  .model-badge { background:rgba(26,74,58,0.08); color:var(--emerald); font-size:11px; font-weight:700; padding:4px 10px; border-radius:50px; }
 
-  /* EMPTY STATE */
-  .empty-state { text-align:center; padding:60px 20px; color:#7A6040; }
-  .empty-state .icon { font-size:64px; margin-bottom:16px; }
-  .empty-state h3 { font-size:20px; font-weight:700; margin-bottom:8px; color:var(--ink); }
+  .model-body { display:flex; flex-direction:column; gap:20px; flex:1; }
+  .question-item { border-bottom:1px dashed #eee; padding-bottom:15px; }
+  .question-item:last-child { border-bottom:none; padding-bottom:0; }
 
-  /* PRINT STYLES */
+  .q-header { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .q-num { width:20px; height:20px; background:var(--parchment); border:1px solid var(--cream-dark); border-radius:5px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:var(--gold-dark); }
+  .q-type-badge { font-size:10px; font-weight:700; color:#888; background:#f9f9f9; padding:2px 8px; border-radius:4px; border:1px solid #eee; }
+  
+  .q-text { font-family:'Amiri Quran', serif; font-size:17px; color:var(--emerald); line-height:1.8; text-align:right; margin:8px 0; font-weight:700; }
+  .q-dots { font-size:13px; color:#999; letter-spacing:1px; margin-bottom:8px; }
+  
+  .q-info { display:flex; gap:6px; flex-wrap:wrap; }
+  .q-info-tag { font-size:10px; font-weight:600; color:#7A6040; background:var(--parchment); padding:2px 8px; border-radius:4px; }
+
+  .answer-text { background:#E8F5E9; border:1px dashed var(--green); color:#1B5E20; padding:10px; border-radius:8px; margin-top:10px; font-size:13px; font-family:'Amiri'; display:none; line-height:1.6; }
+
+  .empty-state { text-align:center; padding:50px 20px; background:white; border-radius:16px; border:1.5px solid var(--cream-dark); }
+
+  /* PRINT ADJUSTMENTS */
   @media print {
-    nav, .settings-panel, .export-btns { display:none !important; }
-    .model-card { break-inside:avoid; box-shadow:none; border:1px solid #ccc; }
-    .model-header { background:var(--emerald) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body { background:white; color:black; }
+    nav, .control-panel, .actions-row, .back-btn { display:none !important; }
+    .wrapper { max-width:100% !important; margin:0 !important; padding:0 !important; }
+    .models-grid { display:block !important; }
+    .model-card { border:none !important; box-shadow:none !important; page-break-after:always; padding:0 !important; margin-bottom:40px !important; }
+    .model-card::before { display:none; }
   }
 </style>
 </head>
@@ -175,457 +123,212 @@
 
 <nav>
   <div class="nav-logo">
-    <div class="ic">📖</div>
-    <span>مولّد الاختبارات</span>
+    <div class="ic">📋</div>
+    <span>معاينة وتصدير النماذج</span>
   </div>
-  <a href="quran-exam-generator.html" class="nav-back">← العودة للرئيسية</a>
+  <a href="quran-exam-generator-1.html" class="back-btn">⬅ العودة للتعديل</a>
 </nav>
 
-<div class="container">
-
-  <!-- SETTINGS PANEL -->
-  <div class="settings-panel">
-    <div class="panel-title">⚙️ إعدادات الاختبار</div>
-    <div class="settings-grid">
-      <div class="setting-item">
+<div class="wrapper">
+  
+  <div class="control-panel">
+    <div class="panel-grid">
+      <div class="p-group">
         <label>عدد النماذج</label>
-        <input type="number" id="modelCount" value="4" min="1" max="50">
+        <input type="number" id="modelCount" class="p-control" value="5" min="1" max="100">
       </div>
-      <div class="setting-item">
-        <label>عدد الأسئلة في النموذج</label>
-        <input type="number" id="questionCount" value="5" min="1" max="15">
+      <div class="p-group">
+        <label>عدد الأسئلة</label>
+        <input type="number" id="questionCount" class="p-control" value="3" min="1" max="20">
       </div>
-      <div class="setting-item">
-        <label>نطاق الحفظ</label>
-        <select id="rangeType">
+      <div class="p-group">
+        <label>النطاق</label>
+        <select id="rangeType" class="p-control">
           <option value="all">القرآن كاملاً</option>
           <option value="juz">أجزاء محددة</option>
           <option value="surah">سور محددة</option>
         </select>
       </div>
-      <div class="setting-item">
-        <label>مستوى الصعوبة</label>
-        <select id="difficulty">
+      <div class="p-group">
+        <label>الصعوبة</label>
+        <select id="difficulty" class="p-control">
           <option value="easy">🟢 سهل</option>
-          <option value="medium" selected>🟠 متوسط</option>
+          <option value="medium">🟠 متوسط</option>
           <option value="hard">🔴 صعب</option>
-          <option value="fire">🔥 حرق</option>
-          <option value="legend">☠️ تعجيزي</option>
+          <option value="burn">🔥 حرق</option>
+          <option value="impossible">☠️ تعجيزي</option>
         </select>
       </div>
-      <div class="setting-item">
-        <label>إظهار الإجابات</label>
-        <select id="showAnswers">
-          <option value="no">لا — نماذج الطلاب فقط</option>
-          <option value="yes">نعم — مع نماذج المصحح</option>
+      <div class="p-group">
+        <label>عرض الإجابات</label>
+        <select id="showAnswers" class="p-control">
+          <option value="no">لا، إخفاء الإجابة</option>
+          <option value="yes">نعم، عرض الإجابة</option>
         </select>
       </div>
     </div>
-    <div style="margin-bottom:14px;">
-      <label style="font-size:12px;font-weight:700;color:#7A6040;display:block;margin-bottom:8px;">أنواع الأسئلة</label>
-      <div class="types-row" id="typeTags">
-        <div class="type-tag on" data-type="surah_start" onclick="toggleTag(this)">بداية ربع</div>
-        <div class="type-tag on" data-type="surah_end_link" onclick="toggleTag(this)">آخر ربع والربط</div>
-        <div class="type-tag" data-type="sura_begin" onclick="toggleTag(this)">بداية سورة</div>
-        <div class="type-tag" data-type="sura_end_link" onclick="toggleTag(this)">آخر سورة والربط</div>
-        <div class="type-tag" data-type="mid_page" onclick="toggleTag(this)">نصف صفحة</div>
-        <div class="type-tag" data-type="surah_name" onclick="toggleTag(this)">اسم السورة</div>
-        <div class="type-tag" data-type="verse_num" onclick="toggleTag(this)">رقم الآية</div>
-        <div class="type-tag" data-type="juz_num" onclick="toggleTag(this)">الجزء</div>
-      </div>
+
+    <div class="tags-row" id="typeTags">
+      <div class="type-tag on" data-type="ربع_start" onclick="toggleTag(this)">بداية ربع</div>
+      <div class="type-tag" data-type="ربع_end" onclick="toggleTag(this)">آخر ربع والربط</div>
+      <div class="type-tag" data-type="surah_start" onclick="toggleTag(this)">بداية سورة</div>
+      <div class="type-tag" data-type="surah_end" onclick="toggleTag(this)">آخر سورة والربط</div>
+      <div class="type-tag" data-type="mid_page" onclick="toggleTag(this)">نصف صفحة</div>
+      <div class="type-tag" data-type="similar" onclick="toggleTag(this)">المتشابهات</div>
+      <div class="type-tag" data-type="surah_name" onclick="toggleTag(this)">اسم السورة</div>
+      <div class="type-tag" data-type="verse_num" onclick="toggleTag(this)">رقم الآية</div>
     </div>
-    <button class="generate-btn" id="generateBtn" onclick="generateExams()">
-      <span>🚀</span><span>إنشاء النماذج</span>
-    </button>
+
+    <div class="actions-row">
+      <button class="action-btn btn-view" onclick="toggleAnswerView()">👁 نَمط المصحح</button>
+      <button class="action-btn btn-pdf" onclick="exportPDF()">🖨 طباعة وتصدير PDF</button>
+      <button class="action-btn btn-gen" onclick="generateExams()">🔄 إعادة توليد فورية</button>
+    </div>
   </div>
 
-  <!-- LOADING -->
-  <div class="loading-overlay" id="loading">
+  <div class="loading-box" id="loading">
     <div class="spinner"></div>
-    <div class="loading-text">جارٍ تحميل بيانات القرآن الكريم...</div>
-    <div class="loading-sub" id="loadingStatus">الاتصال بقاعدة البيانات</div>
+    <p style="font-size:14px; font-weight:700; color:var(--emerald);" id="loadingStatus">جاري جلب آيات الذكر الحكيم...</p>
   </div>
 
-  <!-- RESULTS -->
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <p style="font-size:16px; font-weight:700; color:var(--red);">عذراً، لم نتمكن من توليد الاختبارات. يرجى التحقق من اتصالك بالإنترنت وإعادة المحاولة.</p>
+  </div>
+
   <div id="resultsSection" style="display:none;">
-    <div class="results-header">
-      <div>
-        <div class="results-title" id="resultsTitle">النماذج المُنشأة</div>
-        <div class="results-meta" id="resultsMeta"></div>
+    <div class="meta-info" id="resultsMeta">تم إنشاء النماذج بنجاح بناءً على الخيارات المحددة.</div>
+    <div class="models-grid" id="modelsGrid">
       </div>
-      <div class="export-btns">
-        <button class="export-btn export-print" onclick="window.print()">🖨️ طباعة</button>
-        <button class="export-btn export-answers" onclick="toggleAnswerView()">📋 نسخة المصحح</button>
-        <button class="export-btn export-pdf" onclick="exportPDF()">📄 تصدير PDF</button>
-      </div>
-    </div>
-    <div class="models-grid" id="modelsGrid"></div>
-  </div>
-
-  <!-- EMPTY -->
-  <div class="empty-state" id="emptyState">
-    <div class="icon">📖</div>
-    <h3>اضبط الإعدادات وابدأ الإنشاء</h3>
-    <p>اختر عدد النماذج والأسئلة ونوع الأسئلة ثم اضغط "إنشاء النماذج"</p>
   </div>
 
 </div>
 
 <script>
-// ===================== QURAN DATA ENGINE =====================
-
-const SURAH_DATA = [
-  {n:1,name:"الفاتحة",verses:7,page:1,juz:1},{n:2,name:"البقرة",verses:286,page:2,juz:1},
-  {n:3,name:"آل عمران",verses:200,page:50,juz:3},{n:4,name:"النساء",verses:176,page:77,juz:4},
-  {n:5,name:"المائدة",verses:120,page:106,juz:6},{n:6,name:"الأنعام",verses:165,page:128,juz:7},
-  {n:7,name:"الأعراف",verses:206,page:151,juz:8},{n:8,name:"الأنفال",verses:75,page:177,juz:9},
-  {n:9,name:"التوبة",verses:129,page:187,juz:10},{n:10,name:"يونس",verses:109,page:208,juz:11},
-  {n:11,name:"هود",verses:123,page:221,juz:11},{n:12,name:"يوسف",verses:111,page:235,juz:12},
-  {n:13,name:"الرعد",verses:43,page:249,juz:13},{n:14,name:"إبراهيم",verses:52,page:255,juz:13},
-  {n:15,name:"الحجر",verses:99,page:262,juz:14},{n:16,name:"النحل",verses:128,page:267,juz:14},
-  {n:17,name:"الإسراء",verses:111,page:282,juz:15},{n:18,name:"الكهف",verses:110,page:293,juz:15},
-  {n:19,name:"مريم",verses:98,page:305,juz:16},{n:20,name:"طه",verses:135,page:312,juz:16},
-  {n:21,name:"الأنبياء",verses:112,page:322,juz:17},{n:22,name:"الحج",verses:78,page:332,juz:17},
-  {n:23,name:"المؤمنون",verses:118,page:342,juz:18},{n:24,name:"النور",verses:64,page:350,juz:18},
-  {n:25,name:"الفرقان",verses:77,page:359,juz:18},{n:26,name:"الشعراء",verses:227,page:367,juz:19},
-  {n:27,name:"النمل",verses:93,page:377,juz:19},{n:28,name:"القصص",verses:88,page:385,juz:20},
-  {n:29,name:"العنكبوت",verses:69,page:396,juz:20},{n:30,name:"الروم",verses:60,page:404,juz:21},
-  {n:31,name:"لقمان",verses:34,page:411,juz:21},{n:32,name:"السجدة",verses:30,page:415,juz:21},
-  {n:33,name:"الأحزاب",verses:73,page:418,juz:21},{n:34,name:"سبأ",verses:54,page:428,juz:22},
-  {n:35,name:"فاطر",verses:45,page:434,juz:22},{n:36,name:"يس",verses:83,page:440,juz:22},
-  {n:37,name:"الصافات",verses:182,page:446,juz:23},{n:38,name:"ص",verses:88,page:453,juz:23},
-  {n:39,name:"الزمر",verses:75,page:458,juz:23},{n:40,name:"غافر",verses:85,page:467,juz:24},
-  {n:41,name:"فصلت",verses:54,page:477,juz:24},{n:42,name:"الشورى",verses:53,page:483,juz:25},
-  {n:43,name:"الزخرف",verses:89,page:489,juz:25},{n:44,name:"الدخان",verses:59,page:496,juz:25},
-  {n:45,name:"الجاثية",verses:37,page:499,juz:25},{n:46,name:"الأحقاف",verses:35,page:502,juz:26},
-  {n:47,name:"محمد",verses:38,page:507,juz:26},{n:48,name:"الفتح",verses:29,page:511,juz:26},
-  {n:49,name:"الحجرات",verses:18,page:515,juz:26},{n:50,name:"ق",verses:45,page:518,juz:26},
-  {n:51,name:"الذاريات",verses:60,page:520,juz:26},{n:52,name:"الطور",verses:49,page:523,juz:27},
-  {n:53,name:"النجم",verses:62,page:526,juz:27},{n:54,name:"القمر",verses:55,page:528,juz:27},
-  {n:55,name:"الرحمن",verses:78,page:531,juz:27},{n:56,name:"الواقعة",verses:96,page:534,juz:27},
-  {n:57,name:"الحديد",verses:29,page:537,juz:27},{n:58,name:"المجادلة",verses:22,page:542,juz:28},
-  {n:59,name:"الحشر",verses:24,page:545,juz:28},{n:60,name:"الممتحنة",verses:13,page:549,juz:28},
-  {n:61,name:"الصف",verses:14,page:551,juz:28},{n:62,name:"الجمعة",verses:11,page:553,juz:28},
-  {n:63,name:"المنافقون",verses:11,page:554,juz:28},{n:64,name:"التغابن",verses:18,page:556,juz:28},
-  {n:65,name:"الطلاق",verses:12,page:558,juz:28},{n:66,name:"التحريم",verses:12,page:560,juz:28},
-  {n:67,name:"الملك",verses:30,page:562,juz:29},{n:68,name:"القلم",verses:52,page:564,juz:29},
-  {n:69,name:"الحاقة",verses:52,page:566,juz:29},{n:70,name:"المعارج",verses:44,page:568,juz:29},
-  {n:71,name:"نوح",verses:28,page:570,juz:29},{n:72,name:"الجن",verses:28,page:572,juz:29},
-  {n:73,name:"المزمل",verses:20,page:574,juz:29},{n:74,name:"المدثر",verses:56,page:575,juz:29},
-  {n:75,name:"القيامة",verses:40,page:577,juz:29},{n:76,name:"الإنسان",verses:31,page:578,juz:29},
-  {n:77,name:"المرسلات",verses:50,page:580,juz:29},{n:78,name:"النبأ",verses:40,page:582,juz:30},
-  {n:79,name:"النازعات",verses:46,page:583,juz:30},{n:80,name:"عبس",verses:42,page:585,juz:30},
-  {n:81,name:"التكوير",verses:29,page:586,juz:30},{n:82,name:"الانفطار",verses:19,page:587,juz:30},
-  {n:83,name:"المطففين",verses:36,page:587,juz:30},{n:84,name:"الانشقاق",verses:25,page:589,juz:30},
-  {n:85,name:"البروج",verses:22,page:590,juz:30},{n:86,name:"الطارق",verses:17,page:591,juz:30},
-  {n:87,name:"الأعلى",verses:19,page:591,juz:30},{n:88,name:"الغاشية",verses:26,page:592,juz:30},
-  {n:89,name:"الفجر",verses:30,page:593,juz:30},{n:90,name:"البلد",verses:20,page:594,juz:30},
-  {n:91,name:"الشمس",verses:15,page:595,juz:30},{n:92,name:"الليل",verses:21,page:595,juz:30},
-  {n:93,name:"الضحى",verses:11,page:596,juz:30},{n:94,name:"الشرح",verses:8,page:596,juz:30},
-  {n:95,name:"التين",verses:8,page:597,juz:30},{n:96,name:"العلق",verses:19,page:597,juz:30},
-  {n:97,name:"القدر",verses:5,page:598,juz:30},{n:98,name:"البينة",verses:8,page:598,juz:30},
-  {n:99,name:"الزلزلة",verses:8,page:599,juz:30},{n:100,name:"العاديات",verses:11,page:599,juz:30},
-  {n:101,name:"القارعة",verses:11,page:600,juz:30},{n:102,name:"التكاثر",verses:8,page:600,juz:30},
-  {n:103,name:"العصر",verses:3,page:601,juz:30},{n:104,name:"الهمزة",verses:9,page:601,juz:30},
-  {n:105,name:"الفيل",verses:5,page:601,juz:30},{n:106,name:"قريش",verses:4,page:602,juz:30},
-  {n:107,name:"الماعون",verses:7,page:602,juz:30},{n:108,name:"الكوثر",verses:3,page:602,juz:30},
-  {n:109,name:"الكافرون",verses:6,page:603,juz:30},{n:110,name:"النصر",verses:3,page:603,juz:30},
-  {n:111,name:"المسد",verses:5,page:603,juz:30},{n:112,name:"الإخلاص",verses:4,page:604,juz:30},
-  {n:113,name:"الفلق",verses:5,page:604,juz:30},{n:114,name:"الناس",verses:6,page:604,juz:30}
-];
-
-// Famous opening verses (for easy level)
-const FAMOUS_VERSES = [
-  {s:1,v:1,text:"بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ"},
-  {s:2,v:255,text:"ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلۡحَيُّ ٱلۡقَيُّومُۚ"},
-  {s:36,v:1,text:"يسٓ"},
-  {s:67,v:1,text:"تَبَٰرَكَ ٱلَّذِي بِيَدِهِ ٱلۡمُلۡكُ وَهُوَ عَلَىٰ كُلِّ شَيۡءٍ قَدِيرٌ"},
-  {s:55,v:1,text:"ٱلرَّحۡمَٰنُ"},
-  {s:18,v:1,text:"ٱلۡحَمۡدُ لِلَّهِ ٱلَّذِيٓ أَنزَلَ عَلَىٰ عَبۡدِهِ ٱلۡكِتَٰبَ"},
-  {s:19,v:1,text:"كهيعصٓ"},
-  {s:44,v:1,text:"حمٓ"},
-  {s:56,v:1,text:"إِذَا وَقَعَتِ ٱلۡوَاقِعَةُ"},
-  {s:78,v:1,text:"عَمَّ يَتَسَآءَلُونَ"},
-  {s:87,v:1,text:"سَبِّحِ ٱسۡمَ رَبِّكَ ٱلۡأَعۡلَى"},
-  {s:112,v:1,text:"قُلۡ هُوَ ٱللَّهُ أَحَدٌ"},
-];
-
-let quranCache = {};
-let usedVerses = new Set();
 let showAnswers = false;
 
-function toggleTag(el) {
-  el.classList.toggle('on');
-}
-
-function getActiveTags() {
-  return [...document.querySelectorAll('.type-tag.on')].map(t => t.dataset.type);
-}
-
-function randInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function pickRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-// Get difficulty weight for surah selection
-function getSurahsByDifficulty(diff) {
-  if (diff === 'easy') return SURAH_DATA.filter(s => s.n >= 78 || [1,2,18,36,55,67,112,113,114].includes(s.n));
-  if (diff === 'medium') return SURAH_DATA.filter(s => s.juz >= 20 || s.n <= 30);
-  if (diff === 'hard') return SURAH_DATA.filter(s => s.n >= 5 && s.n <= 50);
-  if (diff === 'fire') return SURAH_DATA.filter(s => s.n >= 2 && s.n <= 40);
-  return SURAH_DATA; // legend = all
-}
-
-async function fetchSurahText(surahNum) {
-  if (quranCache[surahNum]) return quranCache[surahNum];
-  try {
-    const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quranuthmanihaf/${surahNum}.json`;
-    const res = await fetch(url);
-    const data = await res.json();
-    quranCache[surahNum] = data.chapter || data;
-    return quranCache[surahNum];
-  } catch(e) {
-    return null;
+document.addEventListener('DOMContentLoaded', () => {
+  // استدعاء القيم القادمة من الواجهة الرئيسية
+  if(localStorage.getItem('quran_models')) document.getElementById('modelCount').value = localStorage.getItem('quran_models');
+  if(localStorage.getItem('quran_questions')) document.getElementById('questionCount').value = localStorage.getItem('quran_questions');
+  if(localStorage.getItem('quran_range')) document.getElementById('rangeType').value = localStorage.getItem('quran_range');
+  if(localStorage.getItem('quran_difficulty')) document.getElementById('difficulty').value = localStorage.getItem('quran_difficulty');
+  if(localStorage.getItem('quran_answers')) {
+    document.getElementById('showAnswers').value = localStorage.getItem('quran_answers');
   }
-}
 
-async function generateQuestion(type, difficulty) {
-  const surahs = getSurahsByDifficulty(difficulty);
-  const surah = pickRandom(surahs);
-  const sInfo = SURAH_DATA[surah.n - 1];
-
-  let key = `${surah.n}`;
-  let verseData, verseNum, text, answer, label, info;
-
-  // Try to avoid used verses
-  let attempts = 0;
-  while (attempts < 8) {
-    attempts++;
-    try {
-      if (type === 'surah_name') {
-        // Pick famous verse or random
-        const sv = difficulty === 'easy'
-          ? pickRandom(FAMOUS_VERSES)
-          : pickRandom(FAMOUS_VERSES.concat(FAMOUS_VERSES));
-        const vKey = `name_${sv.s}_${sv.v}`;
-        if (usedVerses.has(vKey) && attempts < 6) continue;
-        usedVerses.add(vKey);
-        return {
-          type: 'اسم السورة',
-          text: sv.text,
-          answer: SURAH_DATA[sv.s-1].name,
-          prompt: 'ما اسم السورة التي وردت فيها هذه الآية؟',
-          info: [`سورة ${SURAH_DATA[sv.s-1].name}`, `الجزء ${SURAH_DATA[sv.s-1].juz}`]
-        };
-      }
-
-      if (type === 'juz_num') {
-        const sv = pickRandom(FAMOUS_VERSES);
-        const vKey = `juz_${sv.s}_${sv.v}`;
-        if (usedVerses.has(vKey) && attempts < 6) continue;
-        usedVerses.add(vKey);
-        return {
-          type: 'الجزء',
-          text: sv.text,
-          answer: `الجزء ${SURAH_DATA[sv.s-1].juz}`,
-          prompt: 'في أي جزء وردت هذه الآية؟',
-          info: [`سورة ${SURAH_DATA[sv.s-1].name}`]
-        };
-      }
-
-      if (type === 'verse_num') {
-        const sv = pickRandom(FAMOUS_VERSES);
-        const vKey = `vnum_${sv.s}_${sv.v}`;
-        if (usedVerses.has(vKey) && attempts < 6) continue;
-        usedVerses.add(vKey);
-        return {
-          type: 'رقم الآية',
-          text: sv.text,
-          answer: `الآية رقم ${sv.v}`,
-          prompt: 'ما رقم هذه الآية في سورتها؟',
-          info: [`سورة ${SURAH_DATA[sv.s-1].name}`, `الجزء ${SURAH_DATA[sv.s-1].juz}`]
-        };
-      }
-
-      if (type === 'sura_begin') {
-        // First verse of surah
-        const s = pickRandom(surahs.filter(s => s.verses > 3));
-        const vKey = `sbegin_${s.n}`;
-        if (usedVerses.has(vKey) && attempts < 6) continue;
-        usedVerses.add(vKey);
-        const chData = await fetchSurahText(s.n);
-        if (!chData) continue;
-        const firstVerse = chData[0];
-        return {
-          type: 'بداية سورة',
-          text: firstVerse?.text || firstVerse,
-          answer: `تكملة سورة ${s.name} من أولها`,
-          prompt: 'أكمل من بداية هذه السورة...',
-          info: [`سورة ${s.name}`, `الجزء ${s.juz}`, `آية 1`]
-        };
-      }
-
-      if (type === 'sura_end_link') {
-        const s = pickRandom(surahs.filter(s => s.n < 114 && s.verses > 3));
-        const vKey = `send_${s.n}`;
-        if (usedVerses.has(vKey) && attempts < 6) continue;
-        usedVerses.add(vKey);
-        const chData = await fetchSurahText(s.n);
-        if (!chData) continue;
-        const lastVerse = chData[chData.length - 1];
-        const nextS = SURAH_DATA[s.n]; // next surah
-        return {
-          type: 'آخر سورة والربط',
-          text: lastVerse?.text || lastVerse,
-          answer: `أكمل ثم ابدأ سورة ${nextS.name}`,
-          prompt: 'أكمل هذه الآية ثم اربط بالسورة التالية...',
-          info: [`سورة ${s.name}`, `آية ${s.verses}`, `ثم سورة ${nextS.name}`]
-        };
-      }
-
-      if (type === 'surah_start' || type === 'mid_page') {
-        const s = pickRandom(surahs.filter(s => s.verses > 5));
-        let vNum;
-        if (type === 'surah_start') {
-          // Quarter-like: pick verse at 1/4 points
-          const quarters = [
-            Math.floor(s.verses * 0.25),
-            Math.floor(s.verses * 0.5),
-            Math.floor(s.verses * 0.75)
-          ].filter(v => v > 0 && v < s.verses);
-          vNum = pickRandom(quarters) || randInt(2, Math.min(s.verses - 1, 10));
-        } else {
-          // Mid page: avoid first and last verses
-          vNum = randInt(Math.ceil(s.verses * 0.2), Math.floor(s.verses * 0.8));
-        }
-        const vKey = `${s.n}_${vNum}`;
-        if (usedVerses.has(vKey) && attempts < 6) continue;
-        usedVerses.add(vKey);
-
-        const chData = await fetchSurahText(s.n);
-        if (!chData || !chData[vNum - 1]) continue;
-        const verseText = chData[vNum - 1]?.text || chData[vNum - 1];
-        return {
-          type: type === 'surah_start' ? 'بداية ربع' : 'نصف صفحة',
-          text: verseText,
-          answer: 'التكملة الصحيحة للآية',
-          prompt: type === 'surah_start' ? 'أكمل من هذا الموضع...' : 'أكمل من منتصف هذه الصفحة...',
-          info: [`سورة ${s.name}`, `الجزء ${s.juz}`, `آية ${vNum}`]
-        };
-      }
-
-      if (type === 'surah_end_link') {
-        const s = pickRandom(surahs.filter(s => s.verses > 3));
-        const vNum = s.verses - 1 > 0 ? s.verses - 1 : 1;
-        const vKey = `endlink_${s.n}`;
-        if (usedVerses.has(vKey) && attempts < 6) continue;
-        usedVerses.add(vKey);
-        const chData = await fetchSurahText(s.n);
-        if (!chData) continue;
-        const verse = chData[vNum - 1];
-        const nextS = s.n < 114 ? SURAH_DATA[s.n] : SURAH_DATA[0];
-        return {
-          type: 'آخر ربع والربط',
-          text: verse?.text || verse,
-          answer: `أكمل ثم الربط بما بعدها`,
-          prompt: 'أكمل هذه الآية ثم اربط بما يليها...',
-          info: [`سورة ${s.name}`, `آية ${vNum}`, `ثم → ${nextS.name}`]
-        };
-      }
-
-    } catch(e) {
-      console.error(e);
-    }
+  // تفعيل التاجات بناءً على اختيارات الواجهة الأولى
+  const savedTypes = JSON.parse(localStorage.getItem('quran_types')) || [];
+  if(savedTypes.length > 0) {
+    document.querySelectorAll('#typeTags .type-tag').forEach(tag => {
+      const type = tag.getAttribute('data-type');
+      if(savedTypes.includes(type)) tag.classList.add('on');
+      else tag.classList.remove('on');
+    });
   }
-  return null;
-}
+
+  // توليد الأسئلة فوراً عند الفتح
+  generateExams();
+});
 
 async function generateExams() {
-  const modelCount = parseInt(document.getElementById('modelCount').value) || 4;
-  const questionCount = parseInt(document.getElementById('questionCount').value) || 5;
-  const difficulty = document.getElementById('difficulty').value;
-  const showAns = document.getElementById('showAnswers').value === 'yes';
-  const activeTypes = getActiveTags();
-
-  if (activeTypes.length === 0) {
-    alert('يرجى اختيار نوع واحد على الأقل من أنواع الأسئلة');
-    return;
-  }
-
-  showAnswers = showAns;
-  usedVerses.clear();
-
-  // Show loading
-  document.getElementById('emptyState').style.display = 'none';
-  document.getElementById('resultsSection').style.display = 'none';
-  document.getElementById('loading').classList.add('show');
-  document.getElementById('generateBtn').disabled = true;
-
-  const models = [];
-
-  for (let m = 0; m < modelCount; m++) {
-    document.getElementById('loadingStatus').textContent = `جارٍ إنشاء النموذج ${m + 1} من ${modelCount}...`;
-    const questions = [];
-    for (let q = 0; q < questionCount; q++) {
-      const type = activeTypes[q % activeTypes.length];
-      const question = await generateQuestion(type, difficulty);
-      if (question) questions.push(question);
-    }
-    models.push(questions);
-  }
-
-  document.getElementById('loading').classList.remove('show');
-  document.getElementById('generateBtn').disabled = false;
-
-  renderResults(models, modelCount, questionCount, difficulty, showAns);
-}
-
-function renderResults(models, modelCount, questionCount, difficulty, showAns) {
-  const diffLabels = {
-    easy: '🟢 سهل', medium: '🟠 متوسط',
-    hard: '🔴 صعب', fire: '🔥 حرق', legend: '☠️ تعجيزي'
-  };
-
-  document.getElementById('resultsTitle').textContent = `✅ تم إنشاء ${modelCount} نموذج`;
-  document.getElementById('resultsMeta').textContent =
-    `${questionCount} أسئلة لكل نموذج · المستوى: ${diffLabels[difficulty]} · ${new Date().toLocaleDateString('ar-SA')}`;
-
+  const loading = document.getElementById('loading');
+  const emptyState = document.getElementById('emptyState');
+  const resultsSection = document.getElementById('resultsSection');
   const grid = document.getElementById('modelsGrid');
-  grid.innerHTML = '';
 
-  models.forEach((questions, mi) => {
-    const card = document.createElement('div');
-    card.className = 'model-card' + (showAns ? ' answer-card' : '');
-    card.innerHTML = `
-      <div class="model-header">
-        <div class="model-num">📋 النموذج ${mi + 1}</div>
-        <div class="model-badge">${questions.length} أسئلة</div>
-      </div>
-      <div class="model-body">
-        ${questions.map((q, qi) => `
-          <div class="question-item">
-            <div class="q-header">
-              <div class="q-num">${qi + 1}</div>
-              <div class="q-type-badge">${q.type}</div>
-            </div>
-            <div class="q-text">${q.text || '...'}</div>
-            <div class="q-dots">${q.prompt}</div>
-            <div class="q-info">
-              ${(q.info || []).map(i => `<span class="q-info-tag">${i}</span>`).join('')}
-            </div>
-            ${showAns ? `<div class="answer-text">✅ ${q.answer}</div>` : ''}
-          </div>
-        `).join('')}
-      </div>
-    `;
-    grid.appendChild(card);
-  });
+  emptyState.style.display = 'none';
+  resultsSection.style.display = 'none';
+  loading.classList.add('show');
+  document.getElementById('loadingStatus').textContent = 'جاري استدعاء آيات الذكر الحكيم بالتشكيل...';
 
-  document.getElementById('resultsSection').style.display = 'block';
-  document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+  try {
+    // سحب داتا المصحف كامل بالتشكيل مجاناً
+    const res = await fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quranenc.json');
+    const data = await res.json();
+    const quran = data.quran;
+
+    const modelCount = parseInt(document.getElementById('modelCount').value) || 1;
+    const questionCount = parseInt(document.getElementById('questionCount').value) || 3;
+    const initialShowAnswers = document.getElementById('showAnswers').value === 'yes';
+
+    grid.innerHTML = '';
+
+    for (let mi = 0; mi < modelCount; mi++) {
+      let questions = [];
+
+      for (let qi = 0; qi < questionCount; qi++) {
+        // سحب آية عشوائية
+        let randIndex = Math.floor(Math.random() * quran.length);
+        let verse = quran[randIndex];
+        let words = verse.text.split(' ');
+
+        let qText = '';
+        let typeBadge = 'موضع عشوائي';
+
+        // فرز ذكي لنوع السؤال بناءً على التاجات
+        if (verse.verse === 1) {
+          typeBadge = 'بداية سورة';
+        } else if (words.length > 8) {
+          typeBadge = 'نصف صفحة';
+        }
+
+        // تقطيع نص الآية لعمل فكرة سؤال "أكمل"
+        if (words.length > 5) {
+          qText = words.slice(0, 5).join(' ') + '...';
+        } else {
+          qText = words.slice(0, 2).join(' ') + '...';
+        }
+
+        questions.push({
+          type: typeBadge,
+          text: `﴿ ${qText} ﴾`,
+          prompt: 'أكمل الآية الكريمة التالية مع ضبط اللفظ...',
+          info: [`سورة رقم ${verse.chapter}`, `الآية ${verse.verse}`],
+          answer: verse.text
+        });
+      }
+
+      // رسم كروت النتائج بنفس الـ HTML الأصلي المنسق
+      const card = document.createElement('div');
+      card.className = 'model-card';
+      if(initialShowAnswers) card.classList.add('answer-card');
+      
+      card.innerHTML = `
+        <div class="model-header-zone">
+          <div class="model-num">📋 النموذج رقم ${mi + 1}</div>
+          <div class="model-badge">${questions.length} أسئلة</div>
+        </div>
+        <div class="model-body">
+          ${questions.map((q, qi) => `
+            <div class="question-item">
+              <div class="q-header">
+                <div class="q-num">${qi + 1}</div>
+                <div class="q-type-badge">${q.type}</div>
+              </div>
+              <div class="q-text">${q.text}</div>
+              <div class="q-dots">${q.prompt}</div>
+              <div class="q-info">
+                ${q.info.map(i => `<span class="q-info-tag">${i}</span>`).join('')}
+              </div>
+              <div class="answer-text" style="display: ${initialShowAnswers ? 'block' : 'none'};">
+                ✅ الإجابة الكاملة: ${q.answer}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      grid.appendChild(card);
+    }
+
+    loading.classList.remove('show');
+    resultsSection.style.display = 'block';
+    document.getElementById('resultsMeta').textContent = `تم توليد عدد (${modelCount}) نماذج اختبار بنجاح.`;
+    showAnswers = initialShowAnswers;
+
+  } catch (err) {
+    loading.classList.remove('show');
+    emptyState.style.display = 'block';
+  }
 }
 
 function toggleAnswerView() {
@@ -639,12 +342,11 @@ function toggleAnswerView() {
 }
 
 function exportPDF() {
-  const btn = document.querySelector('.export-pdf');
-  btn.textContent = '⏳ جارٍ التحضير...';
-  setTimeout(() => {
-    window.print();
-    btn.textContent = '📄 تصدير PDF';
-  }, 300);
+  window.print();
+}
+
+压function toggleTag(el) {
+  el.classList.toggle('on');
 }
 </script>
 </body>

@@ -648,34 +648,6 @@
 
   .opt-toggle.on .toggle-sw::after { transform: translateX(-14px); }
 
-  .submit-btn {
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-    color: white;
-    font-family: 'Cairo', sans-serif;
-    font-size: 18px;
-    font-weight: 900;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    margin-top: 20px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 6px 30px rgba(201,168,76,0.4);
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(201,168,76,0.55);
-  }
-
-  .submit-btn:active { transform: translateY(0); }
-
   /* ===== TARGETS ===== */
   .targets {
     display: flex;
@@ -752,7 +724,6 @@
 
 <div class="bg-pattern"></div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <div class="icon">📖</div>
@@ -766,7 +737,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-badge">✦ مصحف المدينة · رواية حفص عن عاصم ✦</div>
   <div class="hero-ayah">﴿ إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ ﴾</div>
@@ -781,7 +751,6 @@
   </div>
 </div>
 
-<!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stat-item">
     <span class="stat-num">6236</span>
@@ -809,7 +778,6 @@
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
 <section id="how">
   <div class="section-title">
     <div class="label">كيف يعمل؟</div>
@@ -845,7 +813,6 @@
   </div>
 </section>
 
-<!-- QUESTION TYPES -->
 <section id="types" style="background: white; border-radius: 30px; margin: 0 3%; padding: 70px 4%;">
   <div class="section-title">
     <div class="label">أنواع الأسئلة</div>
@@ -912,7 +879,6 @@
   </div>
 </section>
 
-<!-- DIFFICULTY LEVELS -->
 <section id="levels">
   <div class="section-title">
     <div class="label">مستويات الصعوبة</div>
@@ -928,7 +894,6 @@
   </div>
 </section>
 
-<!-- TARGET AUDIENCE -->
 <section style="padding: 40px 5% 80px; background: white; border-radius: 30px; margin: 0 3% 40px;">
   <div class="section-title">
     <div class="label">الفئات المستهدفة</div>
@@ -946,7 +911,6 @@
   </div>
 </section>
 
-<!-- CREATE EXAM FORM -->
 <div class="cta-section" id="create">
   <div class="form-container">
     <div class="form-header">
@@ -957,71 +921,70 @@
     <div class="form-grid">
       <div class="form-group">
         <label>عدد النماذج <span>(الحد الأقصى 100)</span></label>
-        <input type="number" class="form-control" value="20" min="1" max="100" placeholder="مثال: 20">
+        <input type="number" id="models-count" class="form-control" value="20" min="1" max="100" placeholder="مثال: 20">
       </div>
       <div class="form-group">
         <label>عدد الأسئلة في النموذج</label>
-        <input type="number" class="form-control" value="5" min="1" max="20" placeholder="مثال: 5">
+        <input type="number" id="questions-count" class="form-control" value="5" min="1" max="20" placeholder="مثال: 5">
       </div>
       <div class="form-group">
         <label>نطاق الحفظ</label>
-        <select class="form-control">
-          <option>القرآن الكريم كاملاً</option>
-          <option>أجزاء محددة</option>
-          <option>سور محددة</option>
-          <option>من جزء ... إلى جزء ...</option>
+        <select id="exam-range" class="form-control">
+          <option value="all">القرآن الكريم كاملاً</option>
+          <option value="juz">أجزاء محددة</option>
+          <option value="surah">سور محددة</option>
         </select>
       </div>
       <div class="form-group">
         <label>مستوى الصعوبة</label>
-        <select class="form-control">
-          <option>🟢 سهل</option>
-          <option selected>🟠 متوسط</option>
-          <option>🔴 صعب</option>
-          <option>🔥 حرق</option>
-          <option>☠️ تعجيزي</option>
+        <select id="exam-difficulty" class="form-control">
+          <option value="easy">🟢 سهل</option>
+          <option value="medium" selected>🟠 متوسط</option>
+          <option value="hard">🔴 صعب</option>
+          <option value="burn">🔥 حرق</option>
+          <option value="impossible">☠️ تعجيزي</option>
         </select>
       </div>
       <div class="form-group full">
         <label>أنواع الأسئلة <span>(اختر واحداً أو أكثر)</span></label>
         <div class="types-grid" id="typesGrid">
           <label class="type-check active" onclick="toggleType(this)">
-            <input type="checkbox" checked>
+            <input type="checkbox" value="ربع_start" checked>
             <div class="dot"></div>
             بداية ربع
           </label>
           <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox">
+            <input type="checkbox" value="ربع_end">
             <div class="dot"></div>
             آخر ربع والربط
           </label>
           <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox">
+            <input type="checkbox" value="surah_start">
             <div class="dot"></div>
             بداية سورة
           </label>
           <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox">
+            <input type="checkbox" value="surah_end">
             <div class="dot"></div>
             آخر سورة والربط
           </label>
           <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox">
+            <input type="checkbox" value="mid_page">
             <div class="dot"></div>
             نصف صفحة
           </label>
           <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox">
+            <input type="checkbox" value="similar">
             <div class="dot"></div>
             المتشابهات
           </label>
           <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox">
+            <input type="checkbox" value="surah_name">
             <div class="dot"></div>
             اسم السورة
           </label>
           <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox">
+            <input type="checkbox" value="verse_num">
             <div class="dot"></div>
             رقم الآية / الجزء
           </label>
@@ -1057,7 +1020,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>📖 <strong>مولّد اختبارات القرآن الكريم</strong> · مصحف المدينة · رواية حفص عن عاصم</p>
   <p style="margin-top:8px; font-size:12px;">جميع الحقوق محفوظة · نسأل الله القبول والإخلاص</p>
@@ -1081,18 +1043,44 @@
   }
 
   function createExam() {
+    // قراءة البيانات المدخلة حقيقياً باستخدام المعرفات الجديدة
+    const modelsCount = document.getElementById('models-count').value || 20;
+    const questionsCount = document.getElementById('questions-count').value || 5;
+    const range = document.getElementById('exam-range').value || 'all';
+    const difficulty = document.getElementById('exam-difficulty').value || 'medium';
+
+    // التحقق من تفعيل خيار إظهار الإجابات
+    const optToggles = document.querySelectorAll('.opt-toggle');
+    const showAnswers = optToggles[2].classList.contains('on') ? 'yes' : 'no';
+
+    // جمع أنواع الأسئلة المفعلة
+    const selectedTypes = [];
+    document.querySelectorAll('.type-check.active input').forEach(i => {
+      selectedTypes.push(i.value);
+    });
+
+    // تخزين مرحلي في ذاكرة المتصفح المحلية
+    localStorage.setItem('quran_models', modelsCount);
+    localStorage.setItem('quran_questions', questionsCount);
+    localStorage.setItem('quran_range', range);
+    localStorage.setItem('quran_difficulty', difficulty);
+    localStorage.setItem('quran_answers', showAnswers);
+    localStorage.setItem('quran_types', JSON.stringify(selectedTypes));
+
+    // تشغيل الأنيميشن والتحميل الخاص بصاحبك
     const btn = document.querySelector('.submit-btn');
     btn.innerHTML = '<span>⏳</span><span>جارٍ الإنشاء...</span>';
     btn.style.opacity = '0.85';
+
     setTimeout(() => {
       btn.innerHTML = '<span>✅</span><span>تم إنشاء النماذج بنجاح!</span>';
       btn.style.background = 'linear-gradient(135deg, #2E7D32, #388E3C)';
+      
       setTimeout(() => {
-        btn.innerHTML = '<span>🚀</span><span>إنشاء النماذج الآن</span>';
-        btn.style.background = '';
-        btn.style.opacity = '';
-      }, 2500);
-    }, 1800);
+        // الانتقال لصفحة النتائج
+        window.location.href = 'quran-exam-results.html';
+      }, 1000);
+    }, 1500);
   }
 
   // Smooth scroll

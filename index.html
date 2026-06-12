@@ -69,12 +69,7 @@
     box-shadow: 0 4px 30px rgba(0,0,0,0.3);
   }
 
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
+  .nav-logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
   .nav-logo .icon {
     width: 42px;
     height: 42px;
@@ -84,640 +79,121 @@
     align-items: center;
     justify-content: center;
     font-size: 22px;
-    box-shadow: 0 3px 15px rgba(201,168,76,0.4);
   }
+  .nav-logo span { font-size: 20px; font-weight: 700; color: var(--cream); }
 
-  .nav-logo span {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--cream);
-    letter-spacing: 0.5px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 8px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--cream-dark);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 8px 18px;
-    border-radius: 8px;
-    transition: all 0.25s;
-    border: 1px solid transparent;
-  }
-
-  .nav-links a:hover {
-    background: rgba(201,168,76,0.15);
-    color: var(--gold-light);
-    border-color: rgba(201,168,76,0.3);
-  }
+  /* ===== PAGES SYSTEM ===== */
+  .page { display: none; position: relative; z-index: 1; }
+  .page.active { display: block; }
 
   /* ===== HERO ===== */
-  .hero {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 80px 5% 60px;
-    overflow: hidden;
-  }
-
+  .hero { text-align: center; padding: 80px 5% 60px; }
   .hero-badge {
     display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    align-items: center; gap: 8px;
     background: rgba(26,74,58,0.08);
     border: 1px solid rgba(201,168,76,0.3);
-    color: var(--gold-dark);
-    font-size: 13px;
-    font-weight: 700;
-    padding: 6px 18px;
-    border-radius: 50px;
-    margin-bottom: 24px;
-    animation: fadeDown 0.7s ease both;
+    color: var(--gold-dark); font-size: 13px; font-weight: 700;
+    padding: 6px 18px; border-radius: 50px; margin-bottom: 24px;
   }
-
-  .hero-ayah {
-    font-family: 'Amiri Quran', serif;
-    font-size: clamp(18px, 2.5vw, 26px);
-    color: var(--emerald-mid);
-    margin-bottom: 20px;
-    line-height: 2;
-    opacity: 0.85;
-    animation: fadeDown 0.8s ease 0.1s both;
-  }
-
-  .hero h1 {
-    font-size: clamp(34px, 6vw, 72px);
-    font-weight: 900;
-    line-height: 1.15;
-    margin-bottom: 18px;
-    animation: fadeDown 0.8s ease 0.2s both;
-  }
-
+  .hero-ayah { font-family: 'Amiri Quran', serif; font-size: clamp(18px, 2.5vw, 26px); color: var(--emerald-mid); margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 72px); font-weight: 900; line-height: 1.15; margin-bottom: 18px; }
   .hero h1 .line1 { color: var(--ink); display: block; }
-  .hero h1 .line2 {
-    color: transparent;
-    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-    -webkit-background-clip: text;
-    background-clip: text;
-    display: block;
-  }
+  .hero h1 .line2 { color: transparent; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); -webkit-background-clip: text; background-clip: text; display: block; }
+  .hero p { font-size: clamp(15px, 1.8vw, 19px); color: #5A4A2A; max-width: 650px; margin: 0 auto 40px; line-height: 1.8; }
 
-  .hero p {
-    font-size: clamp(15px, 1.8vw, 19px);
-    color: #5A4A2A;
-    max-width: 650px;
-    margin: 0 auto 40px;
-    line-height: 1.8;
-    animation: fadeDown 0.8s ease 0.3s both;
-  }
-
-  .hero-btns {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    animation: fadeDown 0.8s ease 0.4s both;
-  }
-
+  /* ===== BUTTONS ===== */
   .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    display: inline-flex; align-items: center; gap: 10px;
     background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
-    color: var(--cream);
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 16px 36px;
-    border-radius: 14px;
-    border: 2px solid var(--emerald-light);
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0 6px 25px rgba(26,74,58,0.35);
-    transition: all 0.3s;
+    color: var(--cream); font-family: 'Cairo', sans-serif; font-size: 18px; font-weight: 700;
+    padding: 18px 45px; border-radius: 14px; border: 2px solid var(--emerald-light);
+    cursor: pointer; text-decoration: none; box-shadow: 0 6px 25px rgba(26,74,58,0.35); transition: all 0.3s;
   }
-
-  .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(26,74,58,0.45);
-    background: linear-gradient(135deg, var(--emerald-light), var(--emerald));
-  }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: transparent;
-    color: var(--gold-dark);
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 16px 36px;
-    border-radius: 14px;
-    border: 2px solid var(--gold);
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-
-  .btn-secondary:hover {
-    background: var(--gold);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(201,168,76,0.35);
-  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(26,74,58,0.45); }
 
   /* ===== STATS BAR ===== */
   .stats-bar {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
+    display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
     background: linear-gradient(135deg, var(--emerald), var(--emerald-mid));
-    padding: 24px 5%;
-    border-top: 2px solid var(--gold);
-    border-bottom: 2px solid var(--gold);
-    animation: fadeIn 1s ease 0.6s both;
+    padding: 24px 5%; border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
   }
-
-  .stat-item {
-    text-align: center;
-    padding: 12px 40px;
-    border-left: 1px solid rgba(201,168,76,0.3);
-    flex: 1;
-    min-width: 140px;
-  }
-
+  .stat-item { text-align: center; padding: 12px 40px; border-left: 1px solid rgba(201,168,76,0.3); flex: 1; min-width: 140px; }
   .stat-item:last-child { border-left: none; }
+  .stat-num { font-size: 30px; font-weight: 900; color: var(--gold-light); display: block; }
+  .stat-label { font-size: 12px; color: rgba(245,237,216,0.75); font-weight: 600; }
 
-  .stat-num {
-    font-size: 30px;
-    font-weight: 900;
-    color: var(--gold-light);
-    display: block;
-  }
-
-  .stat-label {
-    font-size: 12px;
-    color: rgba(245,237,216,0.75);
-    font-weight: 600;
-    margin-top: 3px;
-  }
-
-  /* ===== SECTION ===== */
-  section {
-    position: relative;
-    z-index: 1;
-    padding: 80px 5%;
-  }
-
-  .section-title {
-    text-align: center;
-    margin-bottom: 55px;
-  }
-
-  .section-title .label {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
-    color: var(--gold-light);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 5px 16px;
-    border-radius: 50px;
-    margin-bottom: 14px;
-    letter-spacing: 1px;
-  }
-
-  .section-title h2 {
-    font-size: clamp(26px, 4vw, 42px);
-    font-weight: 900;
-    color: var(--ink);
-    line-height: 1.2;
-  }
-
-  .section-title h2 span { color: var(--gold-dark); }
-
-  .section-title p {
-    color: #6A5530;
-    font-size: 16px;
-    margin-top: 12px;
-    max-width: 550px;
-    margin-inline: auto;
-    line-height: 1.8;
-  }
-
-  /* ===== HOW IT WORKS ===== */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .step-card {
-    background: white;
-    border-radius: 20px;
-    padding: 36px 28px;
-    text-align: center;
-    border: 1.5px solid var(--cream-dark);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    transition: all 0.35s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .step-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold), var(--emerald));
-    transform: scaleX(0);
-    transition: transform 0.4s;
-    transform-origin: right;
-  }
-
-  .step-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
-  .step-card:hover::before { transform: scaleX(1); }
-
-  .step-num {
-    display: inline-flex;
-    width: 54px;
-    height: 54px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
-    color: var(--gold-light);
-    font-size: 22px;
-    font-weight: 900;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-    box-shadow: 0 5px 18px rgba(26,74,58,0.25);
-  }
-
-  .step-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
-  .step-card p { font-size: 14px; color: #7A6040; line-height: 1.7; }
-
-  /* ===== QUESTION TYPES ===== */
-  .qtypes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 18px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .qtype-card {
-    background: white;
-    border-radius: 16px;
-    padding: 24px 22px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    border: 1.5px solid var(--cream-dark);
-    box-shadow: 0 3px 14px rgba(0,0,0,0.04);
-    transition: all 0.3s;
-    cursor: pointer;
-  }
-
-  .qtype-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(201,168,76,0.15);
-  }
-
-  .qtype-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--cream), var(--cream-dark));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-    border: 1px solid var(--cream-dark);
-  }
-
-  .qtype-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 5px; color: var(--ink); }
-  .qtype-card p { font-size: 13px; color: #7A6040; line-height: 1.6; }
-
-  /* ===== DIFFICULTY ===== */
-  .levels {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    justify-content: center;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .level-pill {
-    padding: 14px 28px;
-    border-radius: 50px;
-    font-size: 15px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 2px solid;
-    transition: all 0.3s;
-    cursor: pointer;
-  }
-
-  .level-pill:hover { transform: scale(1.06); }
-
-  .l1 { background: #E8F5E9; border-color: #4CAF50; color: #2E7D32; }
-  .l2 { background: #FFF3E0; border-color: #FF9800; color: #E65100; }
-  .l3 { background: #FCE4EC; border-color: #F44336; color: #B71C1C; }
-  .l4 { background: #FFF8E1; border-color: #FF6F00; color: #E65100; }
-  .l5 { background: #1A1208; border-color: #666; color: #FFD700; }
-
-  /* ===== CTA FORM SECTION ===== */
-  .cta-section {
-    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-mid) 50%, #1A3A2A 100%);
-    padding: 90px 5%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: '﴿ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا ﴾';
-    position: absolute;
-    font-family: 'Amiri Quran', serif;
-    font-size: 100px;
-    color: rgba(255,255,255,0.03);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
-    pointer-events: none;
-  }
-
-  .cta-section::after {
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    border: 1px solid rgba(201,168,76,0.1);
-    top: -100px;
-    left: -100px;
-  }
-
-  .form-container {
-    max-width: 850px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .form-header {
-    text-align: center;
-    margin-bottom: 45px;
-  }
-
-  .form-header h2 {
-    font-size: clamp(26px, 4vw, 40px);
-    font-weight: 900;
-    color: var(--cream);
-    margin-bottom: 10px;
-  }
-
-  .form-header p {
-    color: rgba(245,237,216,0.65);
-    font-size: 15px;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    margin-bottom: 18px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
+  /* ===== CREATE FORM PAGE ===== */
+  .cta-section { background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-mid) 50%, #1A3A2A 100%); padding: 60px 5%; min-height: 80vh; }
+  .form-container { max-width: 850px; margin: 0 auto; }
+  .form-header { text-align: center; margin-bottom: 35px; color: var(--cream); }
+  .form-header h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 900; margin-bottom: 10px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
   .form-group.full { grid-column: 1 / -1; }
-
-  .form-group label {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gold-light);
-    letter-spacing: 0.3px;
-  }
-
-  .form-group label span { color: rgba(201,168,76,0.5); font-weight: 400; }
-
+  .form-group label { font-size: 13px; font-weight: 700; color: var(--gold-light); }
   .form-control {
-    background: rgba(255,255,255,0.06);
-    border: 1.5px solid rgba(201,168,76,0.25);
-    border-radius: 12px;
-    padding: 13px 16px;
-    color: var(--cream);
-    font-family: 'Cairo', sans-serif;
-    font-size: 14px;
-    transition: all 0.25s;
-    outline: none;
-    width: 100%;
-    -webkit-appearance: none;
+    background: rgba(255,255,255,0.06); border: 1.5px solid rgba(201,168,76,0.25);
+    border-radius: 12px; padding: 13px 16px; color: var(--cream); font-family: 'Cairo', sans-serif;
+    font-size: 14px; outline: none; width: 100%;
   }
-
-  .form-control:focus {
-    border-color: var(--gold);
-    background: rgba(255,255,255,0.1);
-    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
-  }
-
+  .form-control:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
   .form-control option { background: var(--emerald); color: var(--cream); }
 
-  .types-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 10px;
-  }
-
+  /* TYPES GRID & TOGGLES */
+  .types-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
   .type-check {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.05);
-    border: 1.5px solid rgba(201,168,76,0.2);
-    border-radius: 10px;
-    padding: 11px 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 13px;
-    color: var(--cream-dark);
-    font-weight: 600;
+    display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(201,168,76,0.2); border-radius: 10px; padding: 11px 14px;
+    cursor: pointer; font-size: 13px; color: var(--cream-dark); transition: all 0.2s;
   }
-
-  .type-check:hover, .type-check.active {
-    background: rgba(201,168,76,0.12);
-    border-color: var(--gold);
-    color: var(--gold-light);
-  }
-
+  .type-check.active { background: rgba(201,168,76,0.12); border-color: var(--gold); color: var(--gold-light); }
   .type-check input { display: none; }
+  .type-check .dot { width: 18px; height: 18px; border-radius: 5px; border: 2px solid rgba(201,168,76,0.4); display: flex; align-items: center; justify-content: center; }
+  .type-check.active .dot { background: var(--gold); border-color: var(--gold); }
+  .type-check.active .dot::after { content: '✓'; color: white; font-size: 11px; }
 
-  .type-check .dot {
-    width: 18px;
-    height: 18px;
-    border-radius: 5px;
-    border: 2px solid rgba(201,168,76,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    flex-shrink: 0;
-  }
-
-  .type-check.active .dot {
-    background: var(--gold);
-    border-color: var(--gold);
-  }
-
-  .type-check.active .dot::after {
-    content: '✓';
-    color: white;
-    font-size: 11px;
-    font-weight: 900;
-  }
-
-  .options-row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
+  .options-row { display: flex; gap: 12px; flex-wrap: wrap; }
   .opt-toggle {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    background: rgba(255,255,255,0.05);
-    border: 1.5px solid rgba(201,168,76,0.2);
-    border-radius: 10px;
-    padding: 10px 16px;
-    cursor: pointer;
-    font-size: 13px;
-    color: var(--cream-dark);
-    font-weight: 600;
-    transition: all 0.2s;
-    flex: 1;
-    min-width: 160px;
+    display: flex; align-items: center; gap: 9px; background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(201,168,76,0.2); border-radius: 10px; padding: 10px 16px;
+    cursor: pointer; font-size: 13px; color: var(--cream-dark); width: 100%; flex: 1; min-width: 160px;
   }
-
   .opt-toggle.on { background: rgba(201,168,76,0.12); border-color: var(--gold); color: var(--gold-light); }
-
-  .toggle-sw {
-    width: 32px;
-    height: 18px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 9px;
-    position: relative;
-    transition: background 0.2s;
-    margin-right: auto;
-  }
-
+  .toggle-sw { width: 32px; height: 18px; background: rgba(255,255,255,0.15); border-radius: 9px; position: relative; margin-right: auto; }
   .opt-toggle.on .toggle-sw { background: var(--gold); }
-
-  .toggle-sw::after {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: white;
-    top: 3px;
-    right: 3px;
-    transition: transform 0.25s;
-  }
-
+  .toggle-sw::after { content: ''; position: absolute; width: 12px; height: 12px; border-radius: 50%; background: white; top: 3px; right: 3px; transition: all 0.2s; }
   .opt-toggle.on .toggle-sw::after { transform: translateX(-14px); }
 
-  /* ===== TARGETS ===== */
-  .targets {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
+  .submit-btn {
+    width: 100%; padding: 18px; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: white; font-family: 'Cairo', sans-serif; font-size: 18px; font-weight: 900; border: none;
+    border-radius: 14px; cursor: pointer; margin-top: 20px; box-shadow: 0 6px 30px rgba(201,168,76,0.4);
+    display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.3s;
   }
+  .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,168,76,0.55); }
 
-  .target-chip {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    border: 1.5px solid var(--cream-dark);
-    border-radius: 50px;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink-mid);
-    transition: all 0.25s;
-    cursor: default;
-  }
-
-  .target-chip:hover { border-color: var(--gold); color: var(--gold-dark); transform: translateY(-2px); }
-  .target-chip .ic { font-size: 20px; }
+  /* ===== RESULTS PAGE ===== */
+  .results-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+  .exam-card { background: white; border: 2px solid var(--cream-dark); border-radius: 20px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; }
+  .exam-header { text-align: center; padding-bottom: 20px; border-bottom: 2px dashed var(--gold); margin-bottom: 30px; }
+  .exam-header h3 { font-size: 24px; color: var(--emerald); margin-bottom: 10px; }
+  .exam-meta { display: flex; justify-content: space-between; font-size: 14px; color: #666; }
+  .question-item { margin-bottom: 25px; font-size: 18px; line-height: 2; }
+  .question-text { font-family: 'Amiri', serif; font-weight: 700; color: var(--ink-mid); }
+  .answer-box { background: #fdfbf7; border-right: 4px solid var(--emerald-light); padding: 15px; margin-top: 10px; font-size: 16px; font-family: 'Amiri', serif; color: var(--emerald-mid); display: none; }
+  .show-answers .answer-box { display: block; }
+  
+  .actions-bar { display: flex; gap: 15px; justify-content: center; margin-bottom: 30px; }
+  .btn-action { padding: 12px 25px; border-radius: 10px; font-family: 'Cairo'; font-weight: 700; cursor: pointer; border: none; display: flex; align-items: center; gap: 8px; }
+  .btn-print { background: var(--emerald); color: white; }
+  .btn-back { background: #ccc; color: #333; }
 
   /* ===== FOOTER ===== */
-  footer {
-    background: var(--emerald);
-    color: rgba(245,237,216,0.7);
-    text-align: center;
-    padding: 32px 5%;
-    border-top: 2px solid var(--gold);
-    position: relative;
-    z-index: 1;
-    font-size: 14px;
-  }
-
+  footer { background: var(--emerald); color: rgba(245,237,216,0.7); text-align: center; padding: 32px 5%; border-top: 2px solid var(--gold); font-size: 14px; margin-top: auto; }
   footer strong { color: var(--gold-light); }
 
-  /* ===== DIVIDER ===== */
-  .ornament {
-    text-align: center;
-    color: var(--gold);
-    font-size: 28px;
-    margin: 0 0 50px;
-    opacity: 0.5;
-    letter-spacing: 12px;
-  }
-
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* ===== RESPONSIVE ===== */
-  @media(max-width: 700px) {
-    .nav-links { display: none; }
-    .form-grid { grid-template-columns: 1fr; }
-    .stat-item { padding: 12px 20px; min-width: 100px; }
-    .hero { padding: 60px 5% 40px; }
-  }
+  @media(max-width: 700px) { .form-grid { grid-template-columns: 1fr; } .exam-meta { flex-direction: column; gap: 10px; } }
 </style>
 </head>
 <body>
@@ -725,372 +201,196 @@
 <div class="bg-pattern"></div>
 
 <nav>
-  <div class="nav-logo">
+  <div class="nav-logo" onclick="navigateTo('homePage')">
     <div class="icon">📖</div>
     <span>مولّد الاختبارات</span>
   </div>
-  <ul class="nav-links">
-    <li><a href="#create">إنشاء اختبار</a></li>
-    <li><a href="#types">أنواع الأسئلة</a></li>
-    <li><a href="#levels">مستويات الصعوبة</a></li>
-    <li><a href="#about">عن المشروع</a></li>
-  </ul>
 </nav>
 
-<div class="hero">
-  <div class="hero-badge">✦ مصحف المدينة · رواية حفص عن عاصم ✦</div>
-  <div class="hero-ayah">﴿ إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ ﴾</div>
-  <h1>
-    <span class="line1">مولّد اختبارات</span>
-    <span class="line2">القرآن الكريم</span>
-  </h1>
-  <p>إنشاء نماذج اختبار قرآنية دقيقة 100٪ في ثوانٍ — للمساجد ومكاتب التحفيظ والمسابقات والمدارس</p>
-  <div class="hero-btns">
-    <a href="#create" class="btn-primary">🚀 إنشاء اختبار الآن</a>
-    <a href="#types" class="btn-secondary">📚 بنك النماذج</a>
+<div id="homePage" class="page active">
+  <div class="hero">
+    <div class="hero-badge">✦ مصحف المدينة · رواية حفص عن عاصم ✦</div>
+    <div class="hero-ayah">﴿ إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ ﴾</div>
+    <h1>
+      <span class="line1">مولّد اختبارات</span>
+      <span class="line2">القرآن الكريم</span>
+    </h1>
+    <p>إنشاء نماذج اختبار قرآنية دقيقة 100٪ في ثوانٍ — للمساجد ومكاتب التحفيظ والمسابقات والمدارس</p>
+    <div class="hero-btns">
+      <button onclick="navigateTo('configPage')" class="btn-primary">🚀 إنشاء اختبار جديد الآن</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><span class="stat-num">6236</span><span class="stat-label">آية كريمة</span></div>
+    <div class="stat-item"><span class="stat-num">114</span><span class="stat-label">سورة</span></div>
+    <div class="stat-item"><span class="stat-num">30</span><span class="stat-label">جزءاً</span></div>
+    <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">مستويات صعوبة</span></div>
   </div>
 </div>
 
-<div class="stats-bar">
-  <div class="stat-item">
-    <span class="stat-num">6236</span>
-    <span class="stat-label">آية كريمة</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">114</span>
-    <span class="stat-label">سورة</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">240</span>
-    <span class="stat-label">ربع</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">30</span>
-    <span class="stat-label">جزءاً</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">9</span>
-    <span class="stat-label">أنواع أسئلة</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">5</span>
-    <span class="stat-label">مستويات صعوبة</span>
+<div id="configPage" class="page">
+  <div class="cta-section">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>🚀 إعداد خيارات الاختبار الجديد</h2>
+        <p>حدد معايير التوليد التلقائي للأسئلة</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>عدد النماذج المطلوبة</label>
+          <input type="number" id="numExams" class="form-control" value="2" min="1" max="10">
+        </div>
+        <div class="form-group">
+          <label>عدد الأسئلة في كل نموذج</label>
+          <input type="number" id="numQuestions" class="form-control" value="3" min="1" max="10">
+        </div>
+        <div class="form-group">
+          <label>نطاق الحفظ</label>
+          <select id="scope" class="form-control">
+            <option value="all">جزء عمّ كاملاً (نسخة تجريبية)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>مستوى الصعوبة</label>
+          <select id="difficulty" class="form-control">
+            <option value="easy">🟢 سهل</option>
+            <option value="medium" selected>🟠 متوسط</option>
+            <option value="hard">🔴 صعب</option>
+          </select>
+        </div>
+        
+        <div class="form-group full">
+          <label>أنواع الأسئلة <span>(اختر نوعاً أو أكثر)</span></label>
+          <div class="types-grid">
+            <label class="type-check active" onclick="toggleType(this)">
+              <input type="checkbox" value="start_surah" checked>
+              <div class="dot"></div> بداية سورة
+            </label>
+            <label class="type-check" onclick="toggleType(this)">
+              <input type="checkbox" value="mid_page">
+              <div class="dot"></div> منتصف صفحة
+            </label>
+            <label class="type-check" onclick="toggleType(this)">
+              <input type="checkbox" value="surah_name">
+              <div class="dot"></div> اسم السورة
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>إعدادات إضافية</label>
+          <div class="options-row">
+            <div class="opt-toggle on" onclick="toggleOpt(this)" id="optAnswers">
+              <span>☐ إظهار الإجابات النموذجية</span>
+              <div class="toggle-sw"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="submit-btn" onclick="generateExamsLogic()">
+        <span>👁️</span>
+        <span>إظهار النتائج الآن</span>
+      </button>
+    </div>
   </div>
 </div>
 
-<section id="how">
-  <div class="section-title">
-    <div class="label">كيف يعمل؟</div>
-    <h2>خطوات بسيطة <span>نتيجة مذهلة</span></h2>
-    <p>من الإعداد حتى التصدير في أقل من دقيقة واحدة</p>
-  </div>
-  <div class="steps">
-    <div class="step-card">
-      <div class="step-num">١</div>
-      <h3>حدّد نطاق الحفظ</h3>
-      <p>اختر القرآن كاملاً أو أجزاءً أو سوراً محددة بحسب المرحلة</p>
+<div id="resultsPage" class="page">
+  <div class="results-container">
+    <div class="actions-bar">
+      <button class="btn-action btn-back" onclick="navigateTo('configPage')">⬅ تعديل الخيارات</button>
+      <button class="btn-action btn-print" onclick="window.print()">🖨️ طباعة النماذج</button>
     </div>
-    <div class="step-card">
-      <div class="step-num">٢</div>
-      <h3>اختر نوع الأسئلة</h3>
-      <p>بدايات الأرباع، أواخر السور، متشابهات، أسماء السور، وأكثر</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">٣</div>
-      <h3>حدّد المستوى والعدد</h3>
-      <p>من سهل إلى تعجيزي — وحدد عدد النماذج والأسئلة المطلوبة</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">٤</div>
-      <h3>إنشاء فوري</h3>
-      <p>النظام يولّد النماذج في ثوانٍ دون أي تكرار أو خطأ</p>
-    </div>
-    <div class="step-card">
-      <div class="step-num">٥</div>
-      <h3>تصدير واطباعة</h3>
-      <p>حمّل PDF أو Word أو اطبع مباشرةً مع نسخة المصحح</p>
-    </div>
-  </div>
-</section>
-
-<section id="types" style="background: white; border-radius: 30px; margin: 0 3%; padding: 70px 4%;">
-  <div class="section-title">
-    <div class="label">أنواع الأسئلة</div>
-    <h2>9 أنواع مختلفة <span>تقيس كل درجات الحفظ</span></h2>
-    <p>من بدايات الأرباع البسيطة حتى المتشابهات الدقيقة</p>
-  </div>
-  <div class="qtypes">
-    <div class="qtype-card">
-      <div class="qtype-icon">🌟</div>
-      <div>
-        <h4>بداية ربع</h4>
-        <p>أول آية بعد علامة الربع ۞ — المتسابق يكمل</p>
-      </div>
-    </div>
-    <div class="qtype-card">
-      <div class="qtype-icon">🔗</div>
-      <div>
-        <h4>آخر ربع والربط</h4>
-        <p>آخر آية قبل الربع — يكمل ثم يدخل الربع التالي</p>
-      </div>
-    </div>
-    <div class="qtype-card">
-      <div class="qtype-icon">📖</div>
-      <div>
-        <h4>بداية سورة</h4>
-        <p>أول آية بعد البسملة — المتسابق يكمل السورة</p>
-      </div>
-    </div>
-    <div class="qtype-card">
-      <div class="qtype-icon">🔄</div>
-      <div>
-        <h4>آخر سورة والربط</h4>
-        <p>آخر آية في السورة — يكمل ثم يبدأ السورة التالية</p>
-      </div>
-    </div>
-    <div class="qtype-card">
-      <div class="qtype-icon">📄</div>
-      <div>
-        <h4>نصف صفحة</h4>
-        <p>موضع عشوائي من منتصف الصفحات لقياس قوة الحفظ</p>
-      </div>
-    </div>
-    <div class="qtype-card">
-      <div class="qtype-icon">⚡</div>
-      <div>
-        <h4>المتشابهات</h4>
-        <p>اختبارات المواضع المتشابهة لفظاً في القرآن الكريم</p>
-      </div>
-    </div>
-    <div class="qtype-card">
-      <div class="qtype-icon">🏷️</div>
-      <div>
-        <h4>اسم السورة</h4>
-        <p>يُعرض نص الآية — المتسابق يذكر اسم سورتها</p>
-      </div>
-    </div>
-    <div class="qtype-card">
-      <div class="qtype-icon">🔢</div>
-      <div>
-        <h4>رقم الآية / الجزء / الحزب</h4>
-        <p>يُعرض نص الآية — المتسابق يحدد معلوماتها</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="levels">
-  <div class="section-title">
-    <div class="label">مستويات الصعوبة</div>
-    <h2>اختر المستوى <span>المناسب</span></h2>
-    <p>من السهل للمبتدئين حتى التعجيزي للحفاظ المتقنين</p>
-  </div>
-  <div class="levels">
-    <div class="level-pill l1">🟢 سهل — بدايات السور والآيات المشهورة</div>
-    <div class="level-pill l2">🟠 متوسط — الأرباع وأواخر السور</div>
-    <div class="level-pill l3">🔴 صعب — منتصف الصفحات والمواضع النادرة</div>
-    <div class="level-pill l4">🔥 حرق — مواضع نادرة ومتشابهات متوسطة</div>
-    <div class="level-pill l5">☠️ تعجيزي — المتشابهات الدقيقة والمواضع المتقاربة</div>
-  </div>
-</section>
-
-<section style="padding: 40px 5% 80px; background: white; border-radius: 30px; margin: 0 3% 40px;">
-  <div class="section-title">
-    <div class="label">الفئات المستهدفة</div>
-    <h2>مناسب <span>للجميع</span></h2>
-  </div>
-  <div class="targets">
-    <div class="target-chip"><span class="ic">🕌</span> المساجد</div>
-    <div class="target-chip"><span class="ic">📚</span> مكاتب التحفيظ</div>
-    <div class="target-chip"><span class="ic">🏆</span> مسابقات القرآن</div>
-    <div class="target-chip"><span class="ic">👨‍🏫</span> المحفظون</div>
-    <div class="target-chip"><span class="ic">🏫</span> المدارس الأزهرية</div>
-    <div class="target-chip"><span class="ic">🎓</span> الطلاب</div>
-    <div class="target-chip"><span class="ic">🏢</span> الجمعيات الخيرية</div>
-    <div class="target-chip"><span class="ic">👤</span> الأفراد</div>
-  </div>
-</section>
-
-<div class="cta-section" id="create">
-  <div class="form-container">
-    <div class="form-header">
-      <h2>🚀 إنشاء اختبار جديد</h2>
-      <p>أعدّ نماذجك الاحترافية في ثوانٍ</p>
-    </div>
-
-    <div class="form-grid">
-      <div class="form-group">
-        <label>عدد النماذج <span>(الحد الأقصى 100)</span></label>
-        <input type="number" id="models-count" class="form-control" value="20" min="1" max="100" placeholder="مثال: 20">
-      </div>
-      <div class="form-group">
-        <label>عدد الأسئلة في النموذج</label>
-        <input type="number" id="questions-count" class="form-control" value="5" min="1" max="20" placeholder="مثال: 5">
-      </div>
-      <div class="form-group">
-        <label>نطاق الحفظ</label>
-        <select id="exam-range" class="form-control">
-          <option value="all">القرآن الكريم كاملاً</option>
-          <option value="juz">أجزاء محددة</option>
-          <option value="surah">سور محددة</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>مستوى الصعوبة</label>
-        <select id="exam-difficulty" class="form-control">
-          <option value="easy">🟢 سهل</option>
-          <option value="medium" selected>🟠 متوسط</option>
-          <option value="hard">🔴 صعب</option>
-          <option value="burn">🔥 حرق</option>
-          <option value="impossible">☠️ تعجيزي</option>
-        </select>
-      </div>
-      <div class="form-group full">
-        <label>أنواع الأسئلة <span>(اختر واحداً أو أكثر)</span></label>
-        <div class="types-grid" id="typesGrid">
-          <label class="type-check active" onclick="toggleType(this)">
-            <input type="checkbox" value="ربع_start" checked>
-            <div class="dot"></div>
-            بداية ربع
-          </label>
-          <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox" value="ربع_end">
-            <div class="dot"></div>
-            آخر ربع والربط
-          </label>
-          <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox" value="surah_start">
-            <div class="dot"></div>
-            بداية سورة
-          </label>
-          <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox" value="surah_end">
-            <div class="dot"></div>
-            آخر سورة والربط
-          </label>
-          <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox" value="mid_page">
-            <div class="dot"></div>
-            نصف صفحة
-          </label>
-          <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox" value="similar">
-            <div class="dot"></div>
-            المتشابهات
-          </label>
-          <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox" value="surah_name">
-            <div class="dot"></div>
-            اسم السورة
-          </label>
-          <label class="type-check" onclick="toggleType(this)">
-            <input type="checkbox" value="verse_num">
-            <div class="dot"></div>
-            رقم الآية / الجزء
-          </label>
-        </div>
-      </div>
-      <div class="form-group full">
-        <label>إعدادات إضافية</label>
-        <div class="options-row">
-          <div class="opt-toggle on" onclick="toggleOpt(this)">
-            <span>☑ منع التكرار</span>
-            <div class="toggle-sw"></div>
-          </div>
-          <div class="opt-toggle on" onclick="toggleOpt(this)">
-            <span>☑ توزيع الأسئلة</span>
-            <div class="toggle-sw"></div>
-          </div>
-          <div class="opt-toggle" onclick="toggleOpt(this)">
-            <span>☐ إظهار الإجابات</span>
-            <div class="toggle-sw"></div>
-          </div>
-          <div class="opt-toggle" onclick="toggleOpt(this)">
-            <span>☐ نسخة المصحح</span>
-            <div class="toggle-sw"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button class="submit-btn" onclick="createExam()">
-      <span>🚀</span>
-      <span>إنشاء النماذج الآن</span>
-    </button>
+    
+    <div id="examsRenderArea"></div>
   </div>
 </div>
 
 <footer>
   <p>📖 <strong>مولّد اختبارات القرآن الكريم</strong> · مصحف المدينة · رواية حفص عن عاصم</p>
-  <p style="margin-top:8px; font-size:12px;">جميع الحقوق محفوظة · نسأل الله القبول والإخلاص</p>
 </footer>
 
 <script>
+  // بنك أسئلة تجريبي حقيقي (جزء عم) عشان الموقع يشتغل بجد قدام عينك!
+  const mockDatabase = [
+    { type: 'start_surah', difficulty: 'easy', q: 'أكمل من بداية سورة النبأ قوله تعالى: ﴿ عَمَّ يَتَسَاءَلُونَ ﴾', a: 'عَمَّ يَتَسَاءَلُونَ ﴿١﴾ عَنِ النَّبَإِ الْعَظِيمِ ﴿٢﴾ الَّذِي هُمْ فِيهِ مُخْتَلِفُونَ ﴿٣﴾' },
+    { type: 'start_surah', difficulty: 'easy', q: 'أكمل من بداية سورة الغاشية قوله تعالى: ﴿ هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ ﴾', a: 'هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ ﴿١﴾ وُجُوهٌ يَوْمَئِذٍ خَاشِعَةٌ ﴿٢﴾ عَامِلَةٌ نَّاصِبَةٌ ﴿٣﴾' },
+    { type: 'start_surah', difficulty: 'easy', q: 'أكمل من بداية سورة الأعلى قوله تعالى: ﴿ سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَى ﴾', a: 'سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَى ﴿١﴾ الَّذِي خَلَقَ فَسَوَّىٰ ﴿٢﴾ وَالَّذِي قَدَّرَ فَهَدَىٰ ﴿٣﴾' },
+    
+    { type: 'mid_page', difficulty: 'medium', q: 'أكمل من قوله تعالى في سورة النازعات: ﴿ فَإِذَا جَاءَتِ الطَّامَّةُ الْكُبْرَىٰ ﴾ إلى ثلاث آيات', a: 'فَإِذَا جَاءَتِ الطَّامَّةُ الْكُبْرَىٰ ﴿٣٤﴾ يَوْمَ يَتَذَكَّرُ الْإِنسَانُ مَا سَعَىٰ ﴿٣٥﴾ وَبُرِّزَتِ الْجَحِيمُ لِمَن يَرَىٰ ﴿٣٦﴾' },
+    { type: 'mid_page', difficulty: 'medium', q: 'أكمل من قوله تعالى في سورة التكوير: ﴿ فَلَا أُقْسِمُ بِالْخُنَّسِ ﴾ إلى ثلاث آيات', a: 'فَلَا أُقْسِمُ بِالْخُنَّسِ ﴿١٥﴾ الْجَوَارِ الْكُنَّسِ ﴿١٦﴾ وَاللَّيْلِ إِذَا عَسْعَسَ ﴿١٧﴾ وَالصُّبْحِ إِذَا تَنَفَّسَ ﴿١٨﴾' },
+    
+    { type: 'surah_name', difficulty: 'hard', q: 'في أي سورة ورد قوله تعالى: ﴿ يَوْمَ يَكُونُ النَّاسُ كَالْفَرَاشِ الْمَبْثُوثِ ﴾؟', a: 'سورة القارعة' },
+    { type: 'surah_name', difficulty: 'hard', q: 'في أي سورة ورد قوله تعالى: ﴿ وَإِنَّهُ لِحُبِّ الْخَيْرِ لَشَدِيدٌ ﴾؟', a: 'سورة العاديات' }
+  ];
+
+  // دالة التنقل بين الصفحات
+  function navigateTo(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   function toggleType(el) {
     el.classList.toggle('active');
-    el.querySelector('input').checked = el.classList.contains('active');
+    const checkbox = el.querySelector('input');
+    checkbox.checked = el.classList.contains('active');
   }
 
   function toggleOpt(el) {
     el.classList.toggle('on');
     const label = el.querySelector('span');
-    const text = label.textContent.trim();
-    if (el.classList.contains('on')) {
-      label.textContent = '☑ ' + text.substring(2);
-    } else {
-      label.textContent = '☐ ' + text.substring(2);
+    const text = label.textContent.substring(2);
+    label.textContent = el.classList.contains('on') ? '☑ ' + text : '☐ ' + text;
+  }
+
+  // الموتور الحقيقي اللي بيولد ويصنع النماذج
+  function generateExamsLogic() {
+    const numExams = parseInt(document.getElementById('numExams').value) || 1;
+    const numQuestions = parseInt(document.getElementById('numQuestions').value) || 3;
+    const showAnswers = document.getElementById('optAnswers').classList.contains('on');
+    
+    const renderArea = document.getElementById('examsRenderArea');
+    renderArea.innerHTML = ''; // تصفية القديم
+
+    // توليد النماذج بناءً على العدد المطلوب
+    for (let i = 1; i <= numExams; i++) {
+      let examHTML = `
+        <div class="exam-card ${showAnswers ? 'show-answers' : ''}">
+          <div class="exam-header">
+            <h3>📝 نموذج اختبار القرآن الكريم (#${i})</h3>
+            <div class="exam-meta">
+              <span><strong>اسم الطالب:</strong> ............................................</span>
+              <span><strong>التاريخ:</strong> .... / .... / ..........</span>
+            </div>
+          </div>
+          <div class="exam-body">
+      `;
+
+      // خلط بنك الأسئلة عشوائياً عشان نمنع التكرار
+      let shuffledQuestions = [...mockDatabase].sort(() => 0.5 - Math.random());
+      let selectedQuestions = shuffledQuestions.slice(0, numQuestions);
+
+      // صب الأسئلة جوه النموذج
+      selectedQuestions.forEach((qObj, index) => {
+        examHTML += `
+          <div class="question-item">
+            <span class="question-text">السؤال ${index + 1}: ${qObj.q}</span>
+            <div class="answer-box">📖 الإجابة النموذجية: ${qObj.a}</div>
+          </div>
+        `;
+      });
+
+      examHTML += `</div></div>`;
+      renderArea.innerHTML += examHTML;
     }
+
+    // نقل المستخدم لصفحة النتائج فوراً
+    navigateTo('resultsPage');
   }
-
-  function createExam() {
-    // قراءة البيانات المدخلة حقيقياً باستخدام المعرفات الجديدة
-    const modelsCount = document.getElementById('models-count').value || 20;
-    const questionsCount = document.getElementById('questions-count').value || 5;
-    const range = document.getElementById('exam-range').value || 'all';
-    const difficulty = document.getElementById('exam-difficulty').value || 'medium';
-
-    // التحقق من تفعيل خيار إظهار الإجابات
-    const optToggles = document.querySelectorAll('.opt-toggle');
-    const showAnswers = optToggles[2].classList.contains('on') ? 'yes' : 'no';
-
-    // جمع أنواع الأسئلة المفعلة
-    const selectedTypes = [];
-    document.querySelectorAll('.type-check.active input').forEach(i => {
-      selectedTypes.push(i.value);
-    });
-
-    // تخزين مرحلي في ذاكرة المتصفح المحلية
-    localStorage.setItem('quran_models', modelsCount);
-    localStorage.setItem('quran_questions', questionsCount);
-    localStorage.setItem('quran_range', range);
-    localStorage.setItem('quran_difficulty', difficulty);
-    localStorage.setItem('quran_answers', showAnswers);
-    localStorage.setItem('quran_types', JSON.stringify(selectedTypes));
-
-    // تشغيل الأنيميشن والتحميل الخاص بصاحبك
-    const btn = document.querySelector('.submit-btn');
-    btn.innerHTML = '<span>⏳</span><span>جارٍ الإنشاء...</span>';
-    btn.style.opacity = '0.85';
-
-    setTimeout(() => {
-      btn.innerHTML = '<span>✅</span><span>تم إنشاء النماذج بنجاح!</span>';
-      btn.style.background = 'linear-gradient(135deg, #2E7D32, #388E3C)';
-      
-      setTimeout(() => {
-        // الانتقال لصفحة النتائج
-        window.location.href = 'quran-exam-results.html';
-      }, 1000);
-    }, 1500);
-  }
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
 </script>
 </body>
 </html>
